@@ -1,0 +1,30 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700&display=swap');
+.main {
+    max-width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* height: auto; */
+    flex-direction: column;
+    padding-top: 10rem;
+    font-family: 'Poppins', sans-serif;
+}
+
+::placeholder {
+    font-size: 3rem;
+}
+
+input {
+    margin-top: 3rem;
+    width: 50rem;
+    height: 10rem;
+    border: none;
+    font-size: 3rem;
+    outline: none;
+}
+
+textarea {
+    width: 50rem;
+    height: 10rem;
+    display: flex;
+}

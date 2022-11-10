@@ -1,0 +1,170 @@
+<div class="collapse-hhhi">
+    <div class="d-flex flex-column flex-shrink-0 bg-dark" style="background:#a8aeb1; width: 4.5rem; height:100vh;" *ngIf="!sideBar">
+        <!-- -->
+        <a href="/" class="d-block p-3 link-dark text-decoration-none" title="Icon-only" data-bs-toggle="tooltip" data-bs-placement="right">
+            <!-- <svg class="bi pe-none" width="40" height="32"><use xlink:href="#bootstrap"/></svg> -->
+            <i class="fa-brands fa-500px"></i>
+            <span class="visually-hidden">Icon-only</span>
+        </a>
+        <ul class="nav nav-pills nav-flush flex-column mb-auto text-center">
+            <li class="nav-item">
+                <a href="#" class="nav-link active py-3  rounded-0 mt-4" aria-current="page" title="Home" data-bs-toggle="tooltip" data-bs-placement="right">
+                    <i class="fa-brands fa-500px"></i>
+                    <!-- <svg class="bi pe-none" width="24" height="24" role="img" aria-label="Home"><use xlink:href="#home"/></svg> -->
+                </a>
+            </li>
+            <li>
+                <a href="#" class="nav-link py-3  rounded-0 mt-4" title="Dashboard" data-bs-toggle="tooltip" data-bs-placement="right">
+                    <!-- <svg class="bi pe-none" width="24" height="24" role="img" aria-label="Dashboard"><use xlink:href="#speedometer2"/></svg> -->
+                    <i class="fa-brands fa-airbnb"></i>
+                </a>
+            </li>
+            <li>
+                <a href="#" class="nav-link py-3  rounded-0 mt-4" title="Orders" data-bs-toggle="tooltip" data-bs-placement="right">
+                    <i class="fa-solid fa-plus"></i>
+                    <!-- <svg class="bi pe-none" width="24" height="24" role="img" aria-label="Orders"><use xlink:href="#table"/></svg> -->
+                </a>
+            </li>
+            <li>
+                <a href="#" class="nav-link py-3  rounded-0 mt-4" title="Products" data-bs-toggle="tooltip" data-bs-placement="right">
+                    <i class="fa-solid fa-address-card"></i>
+                    <!-- <svg class="bi pe-none" width="24" height="24" role="img" aria-label="Products"><use xlink:href="#grid"/></svg> -->
+                </a>
+            </li>
+            <li>
+                <a href="#" class="nav-link py-3  rounded-0 mt-4" title="Customers" data-bs-toggle="tooltip" data-bs-placement="right">
+                    <i class="fa-solid fa-hammer"></i>
+                    <!-- <svg class="bi pe-none" width="24" height="24" role="img" aria-label="Customers"><use xlink:href="#people-circle"/></svg> -->
+                </a>
+            </li>
+            <li>
+                <a class="nav-link py-3  rounded-0 mt-3" title="Customers" data-bs-toggle="tooltip" data-bs-placement="right">
+                    <button (click)="toogleSidebar()"><i class="fa-solid fa-bars"></i></button>
+                    <!-- <svg class="bi pe-none" width="24" height="24" role="img" aria-label="Customers"><use xlink:href="#people-circle"/></svg> -->
+                </a>
+            </li>
+        </ul>
+        <div class="dropdown border-top">
+            <a href="#" class="d-flex align-items-center justify-content-center p-3 link-dark text-decoration-none dropdown-toggle" id="dropdownUser3" data-bs-toggle="dropdown" aria-expanded="false">
+                <img src="https://github.com/mdo.png" alt="mdo" width="24" height="24" class="rounded-circle">
+            </a>
+            <ul class="dropdown-menu text-small shadow" aria-labelledby="dropdownUser3">
+                <li><a class="dropdown-item" href="#">New project...</a></li>
+                <li><a class="dropdown-item" href="#">Settings</a></li>
+                <li><a class="dropdown-item" href="#">Profile</a></li>
+                <li>
+                    <hr class="dropdown-divider">
+                </li>
+                <li><a class="dropdown-item" href="#">Sign out</a></li>
+            </ul>
+        </div>
+    </div>
+
+
+
+    <div class="main d-flex flex-column flex-shrink-0 p-3 text-white bg-dark" *ngIf="sideBar">
+        <div class="logo-area">
+            <a href="">
+                <h1> AU BLOGS</h1>
+            </a>
+        </div>
+        <hr>
+
+
+        <nav class="nav">
+
+            <ul class="nav nav-pills nav-flush flex-column mb-auto text-cente">
+                <li class="nav-item active">
+                    <span>
+                        <i class="fa-brands fa-500px" ></i>
+            <a [routerLink]="['/98765/superadmin']"  class="nav-link   py-3  rounded-0">
+
+
+              Dashboard
+
+            </a>
+          </span>
+                </li>
+                <li class="nav-item">
+                    <span>
+                        <i class="fa-brands fa-airbnb"></i>
+            <a href="" class="nav-link py-3  rounded-0">
+          All Blogs</a>
+          </span>
+
+                </li>
+                <li class="nav-item">
+                    <span>
+                        <i class="fa-solid fa-plus"></i>
+            <a  [routerLink]="['/admin/add-blogs']" class="nav-link py-3  rounded-0">
+           Add Blogs</a>
+          </span>
+
+                </li>
+                <li class="nav-item">
+                    <span>
+                        <i class="fa-solid fa-calendar-days"></i>
+            <a  [routerLink]="['/admin/calendar']"class="nav-link py-3  rounded-0">
+           Todo</a>
+          </span>
+
+                </li>
+                <li class="nav-item">
+                    <span>
+                        <i class="fa-solid fa-address-card"></i>
+            <a href="" class="nav-link py-3  rounded-0">
+
+              News Letters</a>
+          </span>
+
+                </li>
+                <li class="nav-item">
+                    <span>
+                        <i class="fa-solid fa-hammer"></i>
+            <a href="" class="nav-link py-3  rounded-0">
+     Settings
+            </a>
+          </span>
+
+            </ul>
+        </nav>
+
+
+        <div class="section-user-inf">
+            <div class="user">
+                <span>
+          <img style="display: inline-block;" src="http://localhost:4000/{{productDetails.image}}"
+            alt="">
+          <h3 style="display: inline-block;">{{productDetails.name}}</h3>
+        </span>
+            </div>
+            <hr>
+            <div class="btns">
+                <li class="">
+                    <a href="" data-bs-toggle="tooltip" title="User Deatils">
+                        <i class="fa-regular fa-user tooltip-text"></i>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="" title="User Settings">
+                        <i class="fa-solid fa-ellipsis"></i>
+                    </a>
+                </li>
+                <li>
+                    <a title="Log Out">
+                        <i class="fa-solid fa-arrow-right-from-bracket" (click)="deleteToken()"></i>
+                    </a>
+                </li>
+                <li>
+                    <a title="Close Navbar">
+                        <button (click)="toogleSidebar()"><i class="fa-solid fa-xmark"></i></button>
+                    </a>
+                </li>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<!-- // "./node_modules/bootstrap/dist/bootstrap.min.css", -->

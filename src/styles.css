@@ -1,1 +1,14 @@
 /* You can add global styles to this file, and also import other style files */
+
+@import '~font-awesome/css/font-awesome.css';
+@import "../node_modules/angular-calendar/css/angular-calendar.css";
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700&display=swap');
+
+/* @import '~ngx-owl-carousel-o/lib/styles/scss/owl.carousel'; */
+
+
+/* @import '~ngx-owl-carousel-o/lib/styles/scss/owl.theme.default'; */
+
+* {
+    font-family: 'Poppins', sans-serif;
+}

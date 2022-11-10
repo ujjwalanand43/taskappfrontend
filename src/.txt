@@ -1,0 +1,23 @@
+    <editor apiKey="9rb82rjz5uzlnly72kiqx8eoup6j3z6xopu4c7n4bt597nyu" (onSaveContent)="somefunction()" [(ngModel)]="html" name="description" style="width: 50rem;
+    margin:auto;
+    " [init]="{
+        force_br_newlines : true,
+        force_p_newlines : false,
+      height: 500,
+      menubar: true,
+      plugins: [
+        'advlist autolink lists link image charmap print preview anchor',
+        'searchreplace visualblocks code fullscreen',
+        'insertdatetime media table paste code help wordcount',
+        'save'
+      ],
+      toolbar:
+        'undo redo | formatselect | bold italic backcolor | \
+        alignleft aligncenter alignright alignjustify | \
+        bullist numlist outdent indent | removeformat | help |save'
+    }">
+    </editor>
+
+
+            <!-- <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores, incidunt?</p> -->
+        <!-- <ckeditor style="width: 50rem;" name="description" [editor]="editor" [data]="data.content" [(ngModel)]="data.content" (change)="onChange($event)"></ckeditor> -->

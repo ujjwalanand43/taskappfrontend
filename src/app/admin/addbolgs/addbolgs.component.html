@@ -1,0 +1,26 @@
+<div class="sidebar">
+    <app-sidebar></app-sidebar>
+</div>
+<div class="main">
+    <form #myform="ngForm" (ngSubmit)="onSubmit(myform)">
+        <div style="width: 50rem;" class="custom-dropzone" ngx-dropzone [accept]="'image/png'" (change)="onFilesAdded($event)">
+            <ngx-dropzone-label>
+                <div>
+                    <h2>Please Select Your Image</h2>
+                </div>
+            </ngx-dropzone-label>
+
+            <ngx-dropzone-image-preview ngProjectAs="ngx-dropzone-preview" *ngFor="let f of files" [file]="f" [removable]="true" (removed)="onRemove(f)">
+                <ngx-dropzone-label>{{ f.name }} ({{ f.type }})</ngx-dropzone-label>
+            </ngx-dropzone-image-preview>
+        </div>
+        <input type="text" name="title" placeholder="Add a post title...." ngModel>
+
+
+        <textarea name="description" id="" ngModel placeholder="Write....">Write Something</textarea>
+
+
+        <br>
+        <button type="submit">Click here</button>
+    </form>
+</div>

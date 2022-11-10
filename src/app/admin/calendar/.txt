@@ -1,0 +1,57 @@
+    // const req = {
+        
+    // };
+    
+    // const headers = {
+    //   'Content-Type': 'application/json',
+    //   'Authorization': 'Bearer '  + this.accessToken
+    // }
+    // axios.get(this.addTask,{
+    //   headers:headers
+    // })
+    // .then(res=>{
+    //   // res.data = this.productDetails
+    //   this.productDetails2 = res.data.data
+    //   console.log("getting data",res.data )
+    //   console.log("productDetails2",this.productDetails2)
+    // })
+    // .catch((err)=>{
+    //   console.log(err)
+    // })
+
+
+     // res.data = this.productDetails
+
+      // var data ={
+  //   title:form.value.title,
+  //   description:form.value.description,
+  //   important:form.value.important,
+  //   topic:"Sub Tasks",
+    
+  
+  //   // subTask:this.getIdForMain 
+  // }
+
+  // for (var i = 0; i < stringArray.length; i++) {   
+    //   data.append('email', stringArray[i]);  
+    //   }  
+
+    // console.log(JSON.stringify(response.data));
+
+      // this.toastr.success(  JSON.stringify(response.data.message) +'Success');
+
+      // console.log(JSON.stringify(response.data));
+      // console.log(response)
+
+
+      // console.log(response.data._id)
+      // this.toastr.success(  JSON.stringify(response.data.message) +'Success');
+
+       // console.log(JSON.stringify(response.data));
+  // this.toastr.success(  JSON.stringify(response.data.message) +'Success');
+
+
+
+      // res.data = this.productDetails
+     // console.log(res.data )
+    // console.log(this.task)

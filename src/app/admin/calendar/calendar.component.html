@@ -1,0 +1,268 @@
+<div class="sidebar">
+    <app-sidebar></app-sidebar>
+</div>
+
+<div class="content">
+    <div class="header">
+        <span>
+            <input type="text" placeholder="Search Task">
+            <i class="fa-solid fa-magnifying-glass"></i>
+            </span>
+
+        <div class="left">
+            <button type="button" class="btn " data-bs-toggle="modal" data-bs-target="#exampleModal"><a>
+                    Add Task
+                </a></button>
+        </div>
+
+    </div>
+    <div class="name">
+        <h1>Welcome Back,
+            <span style="color: #9C71FC;   font-weight: 500;">
+                <!-- {{productDetails.name}} -->
+                Ujjwal
+            </span>
+        </h1>
+
+    </div>
+    <!-- <div class="cards">
+        <div class="card" style="width: 20rem;">
+            <div class="card-body">
+                <h5 class="card-title">Node</h5>
+          
+                <p class="card-text">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quae, cum..</p>
+                <div class="imp">
+                    <i class="fa-solid fa-tags"></i>
+                    <a href="#" class="card-link ">Important</a>
+                </div>
+             
+            </div>
+        </div>
+
+
+    </div> -->
+
+    <div class="cards">
+        <div class="card-main" *ngFor="let data of productDetails2;  index as i">
+            <div class="left-card">
+                <input type="radio" name="radio" id="radio" style="
+                margin-left:-2rem
+                ">
+            </div>
+            <div class="right-card">
+                <div class="header-card">
+                    <h5 class="title-card">{{data.title}}</h5>
+
+                    <div class="left-header-card">
+                        <button class="btn reminder" type="button" data-bs-toggle="modal" data-bs-target="#reminderModal" (click)="getId(i)">
+                            <span>
+                                <i class="fa-solid fa-clock"></i>
+                            </span>
+                            <a>Reminder</a>
+                        </button>
+                    </div>
+                </div>
+                <div class="desc-card mt-3">
+                    <p style="color: #9CA7BC;">{{data.description}}</p>
+                </div>
+                <div class="main-sub-tasks">
+
+                    <!-- <h5>Sub Task</h5> -->
+                    <div class="sub-tasks" *ngFor="let subData of  data.subTask;index as i">
+                        <div class="left-card">
+                            <input type="radio" name="radio" id="radio">
+                        </div>
+                        <div class="sub-task-right-card">
+                            <div class="header-card">
+                                <h5 class="title-card" style="font-size: 18px;">{{subData.title}}</h5>
+                            </div>
+                            <div class="desc-card mt-3">
+                                <p style="color: #9CA7BC; font-size: 14px;">{{subData.description}}</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- <hr> -->
+                </div>
+                <div class="img">
+                    <ngx-slick-carousel class="carousel" #slickModal="slick-carousel" [config]="slideConfig" (init)="slickInit($event)" (breakpoint)="breakpoint($event)" (afterChange)="afterChange($event)" (beforeChange)="beforeChange($event)">
+                        <div ngxSlickItem *ngFor="let slide of productDetails2[i].image" class="slide">
+                            <img src="http://localhost:4000/image/{{slide}}" alt="" width="500rem">
+                        </div>
+                    </ngx-slick-carousel>
+                </div>
+                <div class="task-assigned">
+                    <p *ngFor="let task of productDetails2[i].email" class="task-assigned-single-user">
+                        {{task.charAt()}}
+                    </p>
+                </div>
+                <div class="user-inf mt-3">
+                    <!-- <img src="http://localhost:4000/{{productDetails.image}}" alt=""> -->
+                    <img src="https://images.unsplash.com/photo-1516321497487-e288fb19713f?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80" alt="">
+                    <!-- <h5 style="color:#9C71FC ; font-weight:400;"> {{productDetails.name}}</h5> -->
+                    <div class="date">
+                        <!-- <h5 style="color:#000 ; font-weight:400;"> Ujjwal</h5> -->
+                        <div class="time">
+                            <i class="fa-solid fa-clock" style="font-size: 14px;"></i>
+                            <p class="time-main">9:39 -11:39 PM</p>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="date">
+
+                </div>
+                <div class="last-header mt-5">
+                    <button class="btn reminder" type="button" data-bs-toggle="modal" data-bs-target="#subtaskModal" (click)="getId(i)">
+                        <span>
+                            <i class="fa-solid fa-diagram-next"></i>
+                        </span>
+                        
+                        <a>Sub Task</a>
+                     
+                    </button>
+                    <div class="imp">
+                        <i class="fa-solid fa-tags"></i>
+                        <a href="#" class="card-link ">Important</a>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<!-- Modal -->
+<div class="modal fade bd-example-modal-lg" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog  modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Add Task</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form #myform="ngForm" (ngSubmit)="onSubmit(myform)" class="addTask">
+                    <div class="input-box">
+                        <label for="Title">Title</label>
+                        <input type="text" name="title" placeholder="Add a post title...." ngModel required>
+                    </div>
+                    <div class="input-box">
+                        <label for="Assignee">Assignee</label>
+                        <input type="text" name="assignee" placeholder="Assignee Name/Email" ngModel required>
+                    </div>
+
+                    <div class="input-box">
+                        <label for="Description">Description</label>
+                        <textarea name="description" id="" ngModel placeholder="Write...." required>Write Something</textarea>
+                    </div>
+                    <div class="input-box">
+                        <label for="Email">Email (Please Use Spaces For The Other Email)</label>
+                        <textarea name="email" id="email" ngModel placeholder="Enter Your Email" ngModel required>Enter Your Email</textarea>
+                    </div>
+
+                    <div class="input-box">
+                        <label for="Important">Important</label>
+                        <select name="important" id="" class="radio">
+                            <option value="true">True</option>
+                            <option value="false">False</option>
+                        </select>
+                        <!-- <input type="radio" name="important" class="radio"> -->
+                    </div>
+                    <div style="width: 40rem; margin-top: 3rem;" class="custom-dropzone" ngx-dropzone [accept]="'image/png'" (change)="onFilesAdded($event)">
+                        <ngx-dropzone-label>
+                            <div>
+                                <h2>Please Select Your Image</h2>
+                            </div>
+                        </ngx-dropzone-label>
+
+                        <ngx-dropzone-image-preview ngProjectAs="ngx-dropzone-preview" *ngFor="let f of files" [file]="f" [removable]="true" (removed)="onRemove(f)">
+                            <ngx-dropzone-label>{{ f.name }} ({{ f.type }})</ngx-dropzone-label>
+                        </ngx-dropzone-image-preview>
+                    </div>
+                    <br>
+                    <button type="submit">Add Task</button>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+<div class="modal fade bd-subtask-modal-lg" id="subtaskModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog  modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Add SubTask</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form #subTaskId="ngForm" (ngSubmit)="subTask(subTaskId)" class="subtask">
+                    <div class="input-box">
+                        <label for="Title">Title</label>
+                        <input type="text" name="title" placeholder="Add a post title...." ngModel required>
+                    </div>
+
+                    <div class="input-box">
+                        <label for="Description">Description</label>
+                        <textarea name="description" id="" ngModel placeholder="Write...." required>Write Something</textarea>
+                    </div>
+                    <div class="input-box">
+                        <label for="Important">Important</label>
+                        <input type="radio" name="important" ngModel required>
+                    </div>
+                    <br>
+                    <button type="submit">Add Sub Task</button>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade bd-subtask-modal-lg" id="reminderModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog  modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Reminder</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form #reminderMain="ngForm" (ngSubmit)="reminder(reminderMain)" class="reminder-main">
+                    <div class="input-box">
+                        <label for="Title">Date</label>
+                        <input type="datetime-local" name="date" placeholder="Add a post title...." ngModel required>
+                    </div>
+
+
+
+                    <br>
+                    <button type="submit">Please Remind</button>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<!-- <img src=  "http://localhost:4000/image/{{checkImg}}" alt=""> -->
